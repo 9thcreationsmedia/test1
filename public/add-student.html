@@ -10,8 +10,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-
-
         <!-- ============================================
         ================= Stylesheets ===================-->
        <link rel="stylesheet" href="ncm/css/bootstrap.min.css">
@@ -20,27 +18,16 @@
         <link rel="stylesheet" href="ncm/css/animsition.min.css">
        
         <link rel="stylesheet" href="ncm/css/main.css">
-  <link rel="stylesheet" href="ncm/css/bootstrap-datetimepicker.min.css">
+ <!--datepicker starts-->
+     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<link href="ncm/css/datepicker.css" rel="stylesheet" type="text/css">
 
-      
-        <!--/ stylesheets -->
-
-
-
-        <!-- ==========================================
-        ================= Modernizr ===================
-        =========================================== -->
+        <!--datepicker ends -->
+     
         <script src="ncm/js/modernizr-2.8.3-respond-1.4.2.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-        <!--/ modernizr -->
 
-<style>
-            .ermsg{
-                width: auto;
-                height: 2px;
-                background-color: transparent;
-            }
-        </style>
+
 
 
     </head>
@@ -86,29 +73,13 @@
 
                             <ul class="dropdown-menu animated littleFadeInRight" role="menu">
 
-                                <!--<li>
-                                    <a href="#">
-                                        <span class="badge bg-greensea pull-right">86%</span>
-                                        <i class="fa fa-user"></i>Profile
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <span class="label bg-lightred pull-right">new</span>
-                                        <i class="fa fa-check"></i>Tasks
-                                    </a>
-                                </li>-->
+                               
                                 <li>
                                     <a href="#">
                                         <i class="fa fa-cog"></i>Settings
                                     </a>
                                 </li>
-                                <!--<li class="divider"></li>-->
-                                <!--<li>
-                                    <a href="#">
-                                        <i class="fa fa-lock"></i>Lock
-                                    </a>
-                                </li>-->
+                               
                                 <li>
                                     <a href="#">
                                         <i class="fa fa-sign-out"></i>Logout
@@ -197,7 +168,7 @@
 
                                            </ul>
                                             </li>
-                                            </li>
+                                            
                                             <li>
       <a href="#"><i class="fa fa-users"></i> <span>Users</span> </a>
                                                 <ul>
@@ -335,6 +306,42 @@
 
                          </ul>
                          </li>
+                                        <li>
+                         <a href="#"><i class="fa fa-edit"></i> <span>Miscellaneous</span></a>
+                         <ul>
+                         <li><a href="#"><i class="fa fa-caret-right"></i>Cast</a>
+                            <ul>
+                         <li><a href="addcast.html"><i class="fa fa-caret-right"></i>Add Cast</a></li>
+                         <li><a href="viewcast.html"><i class="fa fa-caret-right"></i>View Cast</a></li>
+                         </ul>
+                        </li>
+                         <li><a href="#"><i class="fa fa-caret-right"></i>Religion</a>
+                            <ul>
+                         <li><a href="addreligion.html"><i class="fa fa-caret-right"></i>Add Religion</a></li>
+                         <li><a href="viewreligion.html"><i class="fa fa-caret-right"></i>View Religion</a></li>
+                         </ul>     
+                        </li>
+                         <li><a href="#"><i class="fa fa-caret-right"></i>Nationality</a>
+                             <ul>
+                         <li><a href="addnationality.html"><i class="fa fa-caret-right"></i>Add Nationality</a></li>
+                         <li><a href="viewnationality.html"><i class="fa fa-caret-right"></i>View Nationality</a></li>
+                         </ul>    
+                        </li>
+                             <li><a href="#"><i class="fa fa-caret-right"></i>Job</a>
+                             <ul>
+                         <li><a href="addjob.html"><i class="fa fa-caret-right"></i>Add Job</a></li>
+                         <li><a href="viewjob.html"><i class="fa fa-caret-right"></i>View Job</a></li>
+                         </ul>    
+                        </li>
+                             <li><a href="#"><i class="fa fa-caret-right"></i>Role</a>
+                             <ul>
+                         <li><a href="addrole.html"><i class="fa fa-caret-right"></i>Add Role</a></li>
+                         <li><a href="viewrole.html"><i class="fa fa-caret-right"></i>View Role</a></li>
+                         </ul>    
+                        </li>
+
+                         </ul>
+                         </li>
  
  
                                         </ul>
@@ -346,7 +353,7 @@
                             </div>
                         
 
-                </aside>                <!--/ SIDEBAR Content -->
+                               <!--/ SIDEBAR Content -->
 
 
 
@@ -360,6 +367,8 @@
 
 
             </div>
+                    </div>
+                </aside>
             <!--/ CONTROLS Content -->
 
 
@@ -454,18 +463,18 @@
                                                 <label for="fname">First Name: </label>
                                                 <input type="text" name="fname" ng-model="fname" id="fname" class="form-control" pattern="^[a-zA-Z]{2,}$" required>
                                                 <div class="ermsg">
-                                                <span style="color: red" ng-show="form.fname.$touched && form.fname.$invalid">
-                                                    <span ng-show="form.fname.$error.required">First Name Required</span>
-                                                    <span ng-show="!form.fname.$error.required && form.fname.$invalid">'min-2-letters'</span>
+                                                <span ng-show="form.fname.$touched && form.fname.$invalid">
+                                                    <span style="color: darkorange" ng-show="form.fname.$error.required"><i style="color: darkorange" class="fa fa-lg fa-warning"></i>&nbsp;&nbsp;&nbsp;Required field</span>
+                                                    <span style="color: red" ng-show="!form.fname.$error.required && form.fname.$invalid"><i style="color: red" class="fa fa-lg fa-spin fa-exclamation-circle"></i>&nbsp;&nbsp;&nbsp;Enter valid First name</span>
                                                 </span></div>
                                             </div>
                                              <div class="form-group col-md-4">
                                                 <label for="lname">Last Name: </label>
                                                 <input type="text" name="lname" ng-model="lname" id="lname" class="form-control" pattern="^[a-zA-Z]{2,}$" required>
                                                  <div class="ermsg">
-                                                <span style="color: red" ng-show="form.lname.$touched && form.lname.$invalid">
-                                                    <span ng-show="form.lname.$error.required">Last Name Required</span>
-                                                    <span ng-show="!form.lname.$error.required && form.lname.$invalid">'min-2-letters'</span>
+                                                <span ng-show="form.lname.$touched && form.lname.$invalid">
+                                                    <span style="color: darkorange" ng-show="form.lname.$error.required"><i style="color: darkorange" class="fa fa-lg fa-warning"></i>&nbsp;&nbsp;&nbsp;Required field</span>
+                                                    <span style="color: red" ng-show="!form.lname.$error.required && form.lname.$invalid"><i style="color: red" class="fa fa-lg fa-spin fa-exclamation-circle"></i>&nbsp;&nbsp;&nbsp;Enter valid Last name</span>
                                                 </span></div>
                                                  
                                             </div>
@@ -479,8 +488,8 @@
                                                     <option value="other">Other</option>
                                                 </select>
                                                  <div class="ermsg">
-                                                <span style="color: red" ng-show="form.gender.$touched && form.gender.$invalid">
-                                                    <span ng-show="form.gender.$error.required">Required field</span>
+                                                <span ng-show="form.gender.$touched && form.gender.$invalid">
+                                                    <span style="color: darkorange" ng-show="form.gender.$error.required"><i style="color: darkorange" class="fa fa-lg fa-warning"></i>&nbsp;&nbsp;&nbsp;Required field</span>
                                                 </span></div>
                                                
                                         </div>
@@ -489,8 +498,8 @@
 
                                            <div class="form-group col-md-4">
                                                 <label for="dob">DOB: </label>
-                                            <div class='input-group date' id='datetimepicker1'>
-                                                <input type='text' class="form-control" name="dob" id="dob"  required />
+                                            <div class='input-group' >
+                                                <input type='text' class="form-control" name="db" id="db"  required />
                                                 <span class="input-group-addon">
                                                     <span class="fa fa-calendar"></span>
                                                 </span>
@@ -509,14 +518,14 @@
                                                     <option value="bar">II Class</option>
                                                 </select>
                                              <div class="ermsg">
-                                                <span style="color: red" ng-show="form.class.$touched && form.class.$invalid">
-                                                    <span ng-show="form.class.$error.required">Required field</span>
+                                                <span ng-show="form.class.$touched && form.class.$invalid">
+                                                    <span style="color: darkorange" ng-show="form.class.$error.required"><i style="color: darkorange" class="fa fa-lg fa-warning"></i>&nbsp;&nbsp;&nbsp;Required field</span>
                                                 </span></div>
                                                
                                         </div>
                                         <div class="form-group col-md-4">
                                                 <label for="doj">DOJ: </label>
-                                            <div class='input-group date' id='datetimepicker2'>
+                                            <div class='input-group'>
                                                 <input type='text' class="form-control" name="doj" id="doj"  required />
                                                 <span class="input-group-addon">
                                                     <span class="fa fa-calendar"></span>
@@ -543,8 +552,8 @@
 
                                                 </select>
                                               <div class="ermsg">
-                                                <span style="color: red" ng-show="form.bloodgroup.$touched && form.bloodgroup.$invalid">
-                                                    <span ng-show="form.bloodgroup.$error.required">Required field</span>
+                                                <span ng-show="form.bloodgroup.$touched && form.bloodgroup.$invalid">
+                                                    <span style="color: darkorange" ng-show="form.bloodgroup.$error.required"><i style="color: darkorange" class="fa fa-lg fa-warning"></i>&nbsp;&nbsp;&nbsp;Required field</span>
                                                 </span></div>
                                                
                                         </div>
@@ -553,8 +562,8 @@
                                                
                                                 <input type="text" name="hobbies" id="hobbies" ng-model="hobbies" class="form-control mb-10" required>
                                              <div class="ermsg">
-                                                <span style="color: red" ng-show="form.hobbies.$touched && form.hobbies.$invalid">
-                                                    <span ng-show="form.hobbies.$error.required">Required field</span>
+                                                <span ng-show="form.hobbies.$touched && form.hobbies.$invalid">
+                                                    <span style="color: darkorange" ng-show="form.hobbies.$error.required"><i style="color: darkorange" class="fa fa-lg fa-warning"></i>&nbsp;&nbsp;&nbsp;Required field</span>
                                                 </span></div>
                                                
                                         </div>
@@ -567,8 +576,8 @@
                                                     <option value="bc">BC</option>
                                                 </select>
                                               <div class="ermsg">
-                                                <span style="color: red" ng-show="form.caste.$touched && form.caste.$invalid">
-                                                    <span ng-show="form.caste.$error.required">Required field</span>
+                                                <span ng-show="form.caste.$touched && form.caste.$invalid">
+                                                    <span style="color: darkorange" ng-show="form.caste.$error.required"><i style="color: darkorange" class="fa fa-lg fa-warning"></i>&nbsp;&nbsp;&nbsp;Required field</span>
                                                 </span></div>
                                                
                                         </div>
@@ -583,8 +592,8 @@
                                                     <option value="muslim">Muselim</option>
                                                 </select>
                                              <div class="ermsg">
-                                                <span style="color: red" ng-show="form.religion.$touched && form.religion.$invalid">
-                                                    <span ng-show="form.religion.$error.required">Required field</span>
+                                                <span ng-show="form.religion.$touched && form.religion.$invalid">
+                                                    <span style="color: darkorange" ng-show="form.religion.$error.required"><i style="color: darkorange" class="fa fa-lg fa-warning"></i>&nbsp;&nbsp;&nbsp;Required field</span>
                                                 </span></div>
                                                
                                         </div>
@@ -600,9 +609,9 @@
                                                        data-parsley-trigger="change"
                                                        required>
                                                  <div class="ermsg">
-                                                <span style="color: red" ng-show="form.aadharno.$touched && form.aadharno.$invalid">
-                                                    <span ng-show="form.aadharno.$error.required">Aadhar Number Required</span>
-                                                    <span ng-show="!form.aadharno.$error.required && form.aadharno.$invalid">Enter 12 digit aadhar number</span>
+                                                <span ng-show="form.aadharno.$touched && form.aadharno.$invalid">
+                                                    <span style="color: darkorange" ng-show="form.aadharno.$error.required"><i style="color: darkorange" class="fa fa-lg fa-warning"></i>Required field</span>
+                                                    <span style="color: red" ng-show="!form.aadharno.$error.required && form.aadharno.$invalid"><i style="color: red" class="fa fa-lg fa-spin fa-exclamation-circle"></i>&nbsp;&nbsp;&nbsp;Enter valid 12 digit Aadhar number</span>
                                                 </span></div>
                                             </div>
                                             
@@ -622,48 +631,80 @@
                                                        data-parsley-trigger="change"
                                                        required>
                                                 <div class="ermsg">
-                                                <span style="color: red" ng-show="form.email.$touched && form.email.$invalid">
-                                                    <span ng-show="form.email.$error.required">Email Required</span>
-                                                    <span ng-show="!form.email.$error.required && form.email.$invalid">Enter valid email</span>
+                                                <span ng-show="form.email.$touched && form.email.$invalid">
+                                                    <span style="color: darkorange" ng-show="form.email.$error.required"><i style="color: darkorange" class="fa fa-lg fa-warning"></i>Required field</span>
+                                                    <span style="color: red" ng-show="!form.email.$error.required && form.email.$invalid"><i style="color: red" class="fa fa-lg fa-spin fa-exclamation-circle"></i>&nbsp;&nbsp;&nbsp;Enter valid Email</span>
                                                 </span></div>
-                                            </div>
+                                            </div></div>
                                             
                                             <div style="clear:both">
                                             </div>
+                                        <div class="row">
                                             <h4 style="text-align:center"> Parent/Guardian Details</h4>
+                                            <div class="form-group col-md-4">
+                                                <label for="siblings">If Any Siblings: </label>
+                                               
+                                                <select name="siblings" id="siblings" ng-model="siblings" class="form-control mb-10"
+                                                        
+                                                        required>
+                                                    <option value="">Select option...</option>
+                                                    <option value="yes">Yes</option>
+                                                    <option value="no">No</option>
+                                                    
+
+                                                </select>
+                                              <div class="ermsg">
+                                                <span ng-show="form.siblings.$touched && form.siblings.$invalid">
+                                                    <span style="color: darkorange" ng-show="form.siblings.$error.required"><i style="color: darkorange" class="fa fa-lg fa-warning"></i>&nbsp;&nbsp;&nbsp;Required field</span>
+                                                </span></div>
+                                               
+                                        </div>
+                                            <div class="form-group col-md-4 pa-h" ng-show="siblings=='yes'">
+                                                <label for="st_id">Student ID: </label>
+                                                <input type="text" name="st_id" ng-model="st_id" id="st_id" class="form-control" required>
+                                                <div class="ermsg">
+                                                <span ng-show="form.st_id.$touched && form.st_id.$invalid">
+                                                    <span style="color: darkorange" ng-show="form.st_id.$error.required"><i style="color: darkorange" class="fa fa-lg fa-warning"></i>&nbsp;&nbsp;&nbsp;Required field</span>
+                                                    <span style="color: red" ng-show="!form.st_id.$error.required && form.st_id.$invalid"><i style="color: red" class="fa fa-lg fa-spin fa-exclamation-circle"></i>&nbsp;&nbsp;&nbsp;Enter valid ID</span>
+                                                </span></div>
+                                            </div>
+                                        </div>
+                                        <div style="clear:both">
+                                            </div>
+                                        
+                                        <div class="row" ng-show="siblings=='no'">
+                                            
                                         
                                             <div class="form-group col-md-4">
                                                 <label for="pfname">First Name: </label>
                                                 <input type="text" name="pfname" id="pfname" ng-model="pfname" class="form-control" pattern="^[a-zA-Z]{2,}$" required>
                                                 <div class="ermsg">
-                                                <span style="color: red" ng-show="form.pfname.$touched && form.pfname.$invalid">
-                                                    <span ng-show="form.pfname.$error.required">First Name Required</span>
-                                                    <span ng-show="!form.pfname.$error.required && form.pfname.$invalid">'min-2-letters'</span>
+                                                <span ng-show="form.pfname.$touched && form.pfname.$invalid">
+                                                    <span style="color: darkorange" ng-show="form.pfname.$error.required"><i style="color: darkorange" class="fa fa-lg fa-warning"></i>Required field</span>
+                                                    <span style="color: red" ng-show="!form.pfname.$error.required && form.pfname.$invalid"><i style="color: red" class="fa fa-lg fa-spin fa-exclamation-circle"></i>&nbsp;&nbsp;&nbsp;Enter valid First name</span>
                                                 </span></div>
                                             </div>
                                              <div class="form-group col-md-4">
                                                 <label for="plname">Last Name: </label>
                                                 <input type="text" name="plname" id="plname" ng-model="plname" class="form-control" pattern="^[a-zA-Z]{2,}$" required>
                                                  <div class="ermsg">
-                                                <span style="color: red" ng-show="form.plname.$touched && form.plname.$invalid">
-                                                    <span ng-show="form.plname.$error.required">First Name Required</span>
-                                                    <span ng-show="!form.plname.$error.required && form.plname.$invalid">'min-2-letters'</span>
+                                                <span ng-show="form.plname.$touched && form.plname.$invalid">
+                                                    <span style="color: darkorange" ng-show="form.plname.$error.required"><i style="color: darkorange" class="fa fa-lg fa-warning"></i>Required field</span>
+                                                    <span style="color: red" ng-show="!form.plname.$error.required && form.plname.$invalid"><i style="color: red" class="fa fa-lg fa-spin fa-exclamation-circle"></i>&nbsp;&nbsp;&nbsp;Enter valid Last name</span>
                                                 </span></div>
                                             </div>
                                             <div class="form-group col-md-4">
                                                 <label for="pgender">Gender: </label>
                                                
-                                                <select name="pgender" id="pgender" ng-model="pgender" class="form-control mb-10"
-                                                        
-                                                        required>
+                                                <select name="pgender" id="pgender" ng-model="pgender" class="form-control mb-10" required>
                                                     <option value="">Select option...</option>
                                                     <option value="male">Male</option>
                                                     <option value="female">Female</option>
                                                     <option value="other">Other</option>
                                                 </select>
                                                 <div class="ermsg">
-                                                <span style="color: red" ng-show="form.pgender.$touched && form.pgender.$invalid">
-                                                    <span ng-show="form.pgender.$error.required">Required field</span>
+                                                <span ng-show="form.pgender.$touched && form.pgender.$invalid">
+                                                    <span style="color: darkorange" ng-show="form.pgender.$error.required"><i style="color: darkorange" class="fa fa-lg fa-warning"></i>&nbsp;&nbsp;&nbsp;Required field</span>
                                                 </span></div>
                                                
                                         </div>
@@ -672,9 +713,7 @@
                                             <div class="form-group col-md-4">
                                                 <label for="prelation">Relation With Student: </label>
                                                
-                                                <select name="prelation" id="prelation" ng-model="prelation" class="form-control mb-10"
-                                                        
-                                                        required>
+                                                <select name="prelation" id="prelation" ng-model="prelation" class="form-control mb-10" required>
                                                     <option value="">Select option...</option>
                                                     <option value="foo">Mother</option>
                                                     <option value="bar">Father</option>
@@ -682,8 +721,8 @@
 
                                                 </select>
                                                 <div class="ermsg">
-                                                <span style="color: red" ng-show="form.prelation.$touched && form.prelation.$invalid">
-                                                    <span ng-show="form.prelation.$error.required">Required field</span>
+                                                <span ng-show="form.prelation.$touched && form.prelation.$invalid">
+                                                    <span style="color: darkorange" ng-show="form.prelation.$error.required"><i style="color: darkorange" class="fa fa-lg fa-warning"></i>&nbsp;&nbsp;&nbsp;Required field</span>
                                                 </span></div>
                                                
                                         </div>
@@ -693,21 +732,20 @@
                                                 <label for="phone">Contact No: </label>
                                                 <input type="tel" name="phone" ng-model="phone" id="phone" class="form-control" pattern="^[7-9]{1}[0-9]{9}$" maxlength="10" required>
                                                <div class="ermsg">
-                                                <span style="color: red" ng-show="form.phone.$touched && form.phone.$invalid">
-                                                    <span ng-show="form.phone.$error.required">Phone Number Required</span>
-                                                    <span ng-show="!form.phone.$error.required && form.phone.$invalid">Enter 10 digit phone number</span>
+                                                <span ng-show="form.phone.$touched && form.phone.$invalid">
+                                                    <span style="color: darkorange" ng-show="form.phone.$error.required"><i style="color: darkorange" class="fa fa-lg fa-warning"></i>Required field</span>
+                                                    <span style="color: red" ng-show="!form.phone.$error.required && form.phone.$invalid"><i style="color: red" class="fa fa-lg fa-spin fa-exclamation-circle"></i>&nbsp;&nbsp;&nbsp;Enter valid 10 digit Phone number</span>
                                                 </span></div>
                                             </div>
   
                                            <div class="form-group col-md-4">
                                                 <label for="pemail">Email: </label>
                                                 <input type="pemail" id="pemail" ng-model="pemail" name="pemail" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
-                                                       data-parsley-trigger="change"
-                                                       required>
+                                                       data-parsley-trigger="change" required>
                                                 <div class="ermsg">
-                                                <span style="color: red" ng-show="form.pemail.$touched && form.pemail.$invalid">
-                                                    <span ng-show="form.pemail.$error.required">Email Required</span>
-                                                    <span ng-show="!form.pemail.$error.required && form.pemail.$invalid">Enter valid pemail</span>
+                                                <span ng-show="form.pemail.$touched && form.pemail.$invalid">
+                                                    <span style="color: darkorange" ng-show="form.pemail.$error.required"><i style="color: darkorange" class="fa fa-lg fa-warning"></i>Required field</span>
+                                                    <span style="color: red" ng-show="!form.pemail.$error.required && form.pemail.$invalid"><i style="color: red" class="fa fa-lg fa-spin fa-exclamation-circle"></i>&nbsp;&nbsp;&nbsp;Enter valid Email</span>
                                                 </span></div>
                                             </div>
                                             
@@ -715,28 +753,26 @@
                                              <div class="form-group col-md-4">
                                                 <label for="paadharno">Aadhar No: </label>
                                                 <input type="text" name="paadharno" ng-model="paadharno" id="paadharno" class="form-control" placeholder="" maxlength="12" pattern="^\d{12}$"
-                                                       data-parsley-trigger="change"
-                                                       required>
+                                                       data-parsley-trigger="change" required>
                                                  <div class="ermsg">
-                                                <span style="color: red" ng-show="form.paadharno.$touched && form.paadharno.$invalid">
-                                                    <span ng-show="form.paadharno.$error.required">Aadhar Number Required</span>
-                                                    <span ng-show="!form.paadharno.$error.required && form.paadharno.$invalid">Enter 12 digit aadhar number</span>
+                                                <span ng-show="form.paadharno.$touched && form.paadharno.$invalid">
+                                                    <span style="color: darkorange" ng-show="form.paadharno.$error.required"><i style="color: darkorange" class="fa fa-lg fa-warning"></i>Required field</span>
+                                                    <span style="color: red" ng-show="!form.paadharno.$error.required && form.paadharno.$invalid"><i style="color: red" class="fa fa-lg fa-spin fa-exclamation-circle"></i>&nbsp;&nbsp;&nbsp;Enter valid 12 digit Aadhar number</span>
                                                 </span></div>
                                             </div>
                                             <div class="form-group col-md-4">
                                                 <label for="panno">Pan No: </label>
                                                 <input type="text" name="panno" ng-model="panno" id="panno" class="form-control" placeholder="" pattern="^[a-zA-Z]{5}[0-9]{4}[a-zA-Z]{1}$" maxlength="10"
-                                                       data-parsley-trigger="change"
-                                                       required>
+                                                       data-parsley-trigger="change" required>
                                                 <div class="ermsg">
-                                                <span style="color: red" ng-show="form.panno.$touched && form.panno.$invalid">
-                                                    <span ng-show="form.panno.$error.required">Pancard Number Required</span>
-                                                    <span ng-show="!form.panno.$error.required && form.panno.$invalid">Enter 10 digit panno</span>
+                                                <span ng-show="form.panno.$touched && form.panno.$invalid">
+                                                    <span style="color: darkorange" ng-show="form.panno.$error.required"><i style="color: darkorange" class="fa fa-lg fa-warning"></i>Required</span>
+                                                    <span style="color: red" ng-show="!form.panno.$error.required && form.panno.$invalid"><i style="color: red" class="fa fa-lg fa-spin fa-exclamation-circle"></i>&nbsp;&nbsp;&nbsp;Enter valid 10 digit Pancard number</span>
                                                 </span></div>
                                             </div>
                                             <div class="form-group col-md-4">
                                                 <label for="qualification">Qualification:(Optional) </label>
-                                               <select name="f2" class="form-control mb-10">
+                                               <select name="f2" class="form-control mb-10" required>
                                                     <option value="">Select option...</option>
                                                     <option value="foo">Graduate</option>
                                                     <option value="bar">Postgraduation</option>
@@ -753,23 +789,12 @@
                                             </div>
                                             
                                             
-                                            <!-- <div class="form-group col-md-4">
-                                                <label for="certificates">Certificates:(optinal) </label>
-                                                <input type="file" name="fc11" class="form-control" placeholder="Email"
-                                                       
-                                                       required>
-                                            </div>
-                                             <div class="form-group col-md-4">
-                                                <label for="certificates">TC:(optional) </label>
-                                                <input type="file" name="fc11" class="form-control" placeholder="Email"
-                                                       
-                                                       required>
-                                            </div>-->
+                                           
                                             
                                              <div class="form-group col-md-4">
                                                 <label for="bloodgroup">Bloodgroup:(Optional) </label>
                                                
-                                                <select name="f2" class="form-control mb-10">
+                                                <select name="f2" class="form-control mb-10" required>
                                                     <option value="">Select option...</option>
                                                     <option value="a">A +</option>
                                                     <option value="a">A -</option>
@@ -786,16 +811,14 @@
                                         <div class="form-group col-md-4">
                                                 <label for="pcaste">Caste: </label>
                                                
-                                                <select name="pcaste" id="pcaste" ng-model="pcaste" class="form-control mb-10"
-                                                        
-                                                        required>
+                                                <select name="pcaste" id="pcaste" ng-model="pcaste" class="form-control mb-10" required>
                                                     <option value="">Select option...</option>
                                                     <option value="oc">OC</option>
                                                     <option value="bc">BC</option>
                                                 </select>
                                             <div class="ermsg">
-                                                <span style="color: red" ng-show="form.pcaste.$touched && form.pcaste.$invalid">
-                                                    <span ng-show="form.pcaste.$error.required">Required field</span>
+                                                <span ng-show="form.pcaste.$touched && form.pcaste.$invalid">
+                                                    <span style="color: darkorange" ng-show="form.pcaste.$error.required"><i style="color: darkorange" class="fa fa-lg fa-warning"></i>&nbsp;&nbsp;&nbsp;Required field</span>
                                                 </span></div>
                                                
                                         </div>
@@ -805,8 +828,8 @@
                                             <label for="preaddr">Present Address: </label>
                                             <textarea class="form-control" rows="6" name="preaddr" id="preaddr" placeholder="Type your address" ng-model="preaddr" required></textarea>
                                                   <div class="ermsg">
-                                                <span style="color: red" ng-show="form.preaddr.$touched && form.preaddr.$invalid">
-                                                    <span ng-show="form.preaddr.$error.required">Required field</span>
+                                                <span ng-show="form.preaddr.$touched && form.preaddr.$invalid">
+                                                    <span style="color: darkorange" ng-show="form.preaddr.$error.required"><i style="color: darkorange" class="fa fa-lg fa-warning"></i>&nbsp;&nbsp;&nbsp;Required field</span>
                                                 </span></div>
                                         </div>
                                        
@@ -814,8 +837,8 @@
                                             <label for="peraddr">Permanent Address: </label>
                                             <textarea class="form-control" rows="6" name="peraddr" id="peraddr" placeholder="Type your address" ng-model="peraddr" required></textarea>
                                             <div class="ermsg">
-                                                <span style="color: red" ng-show="form.peraddr.$touched && form.peraddr.$invalid">
-                                                    <span ng-show="form.peraddr.$error.required">Required field</span>
+                                                <span ng-show="form.peraddr.$touched && form.peraddr.$invalid">
+                                                    <span style="color: darkorange" ng-show="form.peraddr.$error.required"><i style="color: darkorange" class="fa fa-lg fa-warning"></i>&nbsp;&nbsp;&nbsp;Required field</span>
                                                 </span></div>
                                         </div>
            
@@ -823,18 +846,10 @@
                                       
                                         </div>
                                       
-                                       <!-- <div class="form-group">
-                                            <label for="website">Website: </label>
-                                            <input type="text" name="website" id="website" class="form-control" placeholder="http://" pattern="/(https?:\/\/(?:www\.|(?!www))[^\s\.]+\.[^\s]{2,}|www\.[^\s]+\.[^\s]{2,})/">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="message">Message: </label>
-                                            <textarea class="form-control" rows="6" name="message" id="message" placeholder="Type your message" required></textarea>
-                                        </div>-->
+                                      
 <div class="tile-footer text-right bg-tr-black lter dvd dvd-top">
                                     <!-- SUBMIT BUTTON -->
-                                    <button type="submit" class="btn btn-lightred" id="">Add</button>
+                                    <button type="submit" class="btn btn-primary" id="">Add</button>
                                 </div>
                                     </form>
 
@@ -849,178 +864,7 @@
                             <!-- /tile -->
 
 
-                            <!-- tile -->
-                            <section class="tile">
-
-                                <!-- tile header -->
-                              <!--  <div class="tile-header dvd dvd-btm">
-                                    <h1 class="custom-font"><strong>Type</strong> Validations</h1>
-                                    <ul class="controls">
-                                        <li class="dropdown">
-
-                                            <a role="button" tabindex="0" class="dropdown-toggle settings" data-toggle="dropdown">
-                                                <i class="fa fa-cog"></i>
-                                                <i class="fa fa-spinner fa-spin"></i>
-                                            </a>
-
-                                            <ul class="dropdown-menu pull-right with-arrow animated littleFadeInUp">
-                                                <li>
-                                                    <a role="button" tabindex="0" class="tile-toggle">
-                                                        <span class="minimize"><i class="fa fa-angle-down"></i>&nbsp;&nbsp;&nbsp;Minimize</span>
-                                                        <span class="expand"><i class="fa fa-angle-up"></i>&nbsp;&nbsp;&nbsp;Expand</span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a role="button" tabindex="0" class="tile-refresh">
-                                                        <i class="fa fa-refresh"></i> Refresh
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a role="button" tabindex="0" class="tile-fullscreen">
-                                                        <i class="fa fa-expand"></i> Fullscreen
-                                                    </a>
-                                                </li>
-                                            </ul>
-
-                                        </li>
-                                        <li class="remove"><a role="button" tabindex="0" class="tile-close"><i class="fa fa-times"></i></a></li>
-                                    </ul>
-                                </div>
-                                <!-- /tile header -->
-
-                                <!-- tile body -->
-<!--                                <div class="tile-body">
--->
-
-                                    <form class="form-horizontal" name="form4" role="form" id="form4" data-parsley-validate>
-
-                                      <!--  <div class="form-group">
-                                            <label class="col-sm-3 control-label">Email</label>
-                                            <div class="col-sm-9">
-                                                <input type="email" name="fc11" class="form-control" placeholder="Email"
-                                                       data-parsley-trigger="change"
-                                                       required>
-                                            </div>
-                                        </div>
-
-                                        <hr class="line-dashed line-full" />
-
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Url</label>
-                                            <div class="col-sm-9">
-                                                <input type="url" name="fc12" class="form-control" placeholder="http://"
-                                                       data-parsley-trigger="change"
-                                                       required>
-                                            </div>
-                                        </div>
-
-                                        <hr class="line-dashed line-full" />
-
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Digits</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" name="fc13" class="form-control" placeholder="Digits"
-                                                       data-parsley-trigger="change"
-                                                       data-parsley-type="digits"
-                                                       required>
-                                            </div>
-                                        </div>
-
-                                        <hr class="line-dashed line-full" />
-
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Numbers</label>
-                                            <div class="col-sm-9">
-                                                <input type="number" name="fc14" class="form-control" placeholder="Number"
-                                                       data-parsley-trigger="change"
-                                                       required>
-                                            </div>
-                                        </div>
-
-                                        <hr class="line-dashed line-full" />
-
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Alphanumeric</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" name="fc15" class="form-control" placeholder="Alphanumeric"
-                                                       data-parsley-trigger="change"
-                                                       data-parsley-type="alphanum"
-                                                       required>
-                                            </div>
-                                        </div>
-
-                                        <hr class="line-dashed line-full" />
-
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Alpha</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" name="fc16" class="form-control" placeholder="Alpha"
-                                                       data-parsley-trigger="change"
-                                                       pattern="/^[a-zA-Z]+$/"
-                                                       required>
-                                            </div>
-                                        </div>
-
-                                        <hr class="line-dashed line-full" />
-
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Date ISO</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" name="fc17" class="form-control" placeholder="YYYY-MM-DD"
-                                                       data-parsley-trigger="change"
-                                                       pattern="/[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])$/"
-                                                       required>
-                                            </div>
-                                        </div>
-
-                                        <hr class="line-dashed line-full" />
-
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Phone</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" name="fc18" class="form-control" placeholder="(XXX) XXXX XXX" ng-model="fc18"
-                                                       data-parsley-trigger="change"
-                                                       pattern="^[\d\+\-\.\(\)\/\s]*$"
-                                                       required>
-                                            </div>
-                                        </div>
-
-                                        <hr class="line-dashed line-full" />
-
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Equal</label>
-                                            <div class="col-sm-9">
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <input type="text" id="fc19" name="fc19" class="form-control"
-                                                               data-parsley-trigger="change"
-                                                               required>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <input type="text" id="fc20" name="fc20" class="form-control"
-                                                               data-parsley-trigger="change"
-                                                               data-parsley-equalto="#fc19"
-                                                               required>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        </div>-->
-
-                                    </form>
-
-<!--                                </div>
--->                                <!-- /tile body -->
-
-                                <!-- tile footer -->
-                              <!--  <div class="tile-footer text-right bg-tr-black lter dvd dvd-top">
-                                    <!-- SUBMIT BUTTON -->
-                                  <!--  <button type="submit" class="btn btn-default" id="form4Submit">Submit</button>
-                                </div>
-                                <!-- /tile footer -->
-
-                            </section>
-                            <!-- /tile -->
+                           
 
 
                         </div>
@@ -1035,6 +879,7 @@
                 
             </section>
             <!--/ CONTENT -->
+        </div>
         </div>
         <!--/ Application Content -->
         <!-- ============================================
@@ -1055,8 +900,10 @@
 
         <script src="ncm/js/moment.min.js"></script>
 
-        <script src="ncm/js/bootstrap-datetimepicker.min.js"></script>
 
+<!--date piceker file starts-->
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--datepicker file ends-->
 
         <script src="ncm/js/main.js"></script>
 
@@ -1072,18 +919,41 @@
 
 <!--for datepicker-->
 <script>
-            $(window).load(function(){
+    $(document).ready(function(){
 
-                $('#datepicker-inline').datetimepicker({
-                    inline: true
-                });
+  $("#db").datepicker({
 
-                $('#datetimepicker1').datetimepicker();
-                $('#datetimepicker2').datetimepicker();
+      numberOfMonths: 1,
+      changeMonth:true,
+               changeYear:true,
+      dateFormat:"yy-mm-dd",
 
-             
-            });
-        </script>
+      onSelect: function(selected) {
+
+        $("#doj").datepicker("option","minDate", selected)
+
+      }
+
+  });
+
+  $("#doj").datepicker({
+
+      numberOfMonths: 1,
+      changeMonth:true,
+               changeYear:true,
+      dateFormat:"yy-mm-dd",
+
+      onSelect: function(selected) {
+
+         $("#db").datepicker("option","maxDate", selected)
+
+      }
+
+  }); 
+
+});
+</script>
+
     
    <script>
     angular.module("myApp",[]);
@@ -1159,6 +1029,7 @@ uploadField.onchange = function() {
     };
 };
     </script>
+        
       
     </body>
 </html>

@@ -2818,7 +2818,7 @@ html.boxed-layout .appWrapper.header-fixed.aside-static #header {
   width: 250px;
   min-height:50px;
   float: left;
-  padding: 10px 15px;
+  padding: 0px 15px;
 }
 
 #header .branding a.brand {
@@ -2827,6 +2827,7 @@ html.boxed-layout .appWrapper.header-fixed.aside-static #header {
   font-weight: 300;
   color: white;
   padding-left: 30px;
+  padding-bottom:50px;
   height: 45px;
   line-height: 45px;
   /*background: url(../images/EARATI.png) no-repeat 0 10px;*/
@@ -2834,6 +2835,7 @@ html.boxed-layout .appWrapper.header-fixed.aside-static #header {
   -webkit-transition: none;
   -moz-transition: none;
   transition: none;
+  padding-top:5px;
 }
 
 #header .branding a.brand:hover {
@@ -3375,8 +3377,8 @@ html.boxed-layout .appWrapper.header-fixed.aside-static #header {
 
 #navigation > li.open > a,
 #navigation > li:hover > a {
-  background-color: rgba(0, 0, 0, 0.2);
-   /* background-color: #e67e22;*/
+ /* background-color: rgba(0, 0, 0, 0.10);*/
+    background-color:#e67e22;
   color: white;
 }
 

@@ -172,20 +172,21 @@
                                             </li>
                                             <li>
                                              <a href="#"><i class="fa fa-user"></i> <span>Student</span> </a>
-                                                <ul>
-                                                    <li><a href="add-student.html"><i class="fa fa-caret-right"></i>Add Student</a></li>
-                                                 
-                                                    <li><a href="student-details.html"><i class="fa fa-caret-right"></i> View Student Details</a></li>
-                                                    <li><a href="view-summarizationstudent-data.html"><i class="fa fa-caret-right"></i>View Summarization Details</a></li>
-                                                    <li><a href="student-settings.html"><i class="fa fa-caret-right"></i>Settings</a></li>
+                                                  <ul>
+                                                    <li><a href="{{url('addstudent')}}"><i class="fa fa-caret-right"></i>Add Student</a></li>
+                                                   <!-- <li><a href="student-profile.html"><i class="fa fa-caret-right"></i>Student Profile</a></li>-->
+                                                    <li><a href="{{url('studentdetails')}}"><i class="fa fa-caret-right"></i> View Student Details</a></li>
+                                                    <!--<li><a href="view-summarizationstudent-data.html"><i class="fa fa-caret-right"></i>View Summarization Details</a></li>-->
+                                                    <li><a href="{{url('studentsettings')}}"><i class="fa fa-caret-right"></i>Settings</a></li>
 
                                                 </ul>
                                             </li>
                                             <li>
                                                 <a href="#"><i class="fa fa-user-secret"></i> <span>Parents</span></a>
                                                 <ul>
-                 <li><a href="viewparent-details.html"><i class="fa fa-caret-right"></i>View Parent Details</a></li>
-                   <li><a href="parent-settings.html"><i class="fa fa-caret-right"></i>Settings</a></li>
+                                                      <!-- <li><a href="addparent-info.html"><i class="fa fa-caret-right"></i>Add Parent </a></li>-->
+                                                       <li><a href="{{url('parentdetails')}}"><i class="fa fa-caret-right"></i>View Parent Details</a></li>
+                                                       <li><a href="{{url('parentsettings')}}"><i class="fa fa-caret-right"></i>Settings</a></li>
 
                                            </ul>
                                             </li>
@@ -212,13 +213,13 @@
                                             <li>
                             <a role="button" tabindex="0"><i class="fa fa-user"></i> <span>Employee</span></a>
                                                 <ul>
-         <li><a href="add-employee.html"><i class="fa fa-caret-right"></i> Add Employee</a></li>
-           <li><a href="employee-details.html"><i class="fa fa-caret-right"></i>Employee Details</a></li>
-                  <li><a href="emp-settings.html"><i class="fa fa-caret-right"></i>Settings</a></li>
+         <li><a href="{{url('addemployee')}}"><i class="fa fa-caret-right"></i> Add Employee</a></li>
+           <li><a href="{{url('viewemployee')}}"><i class="fa fa-caret-right"></i>Employee Details</a></li>
+                  <li><a href="{{url('employeesettings')}}"><i class="fa fa-caret-right"></i>Settings</a></li>
 
                                                 </ul>
                                            </li>
-                                            <li class="active open">
+                                            <li>
                            <a href="#"><i class="fa fa-sitemap"></i> <span>Class</span></a>
                                                 <ul>
                                      <li><a href="{{ URL::to('addclass') }}"><i class="fa fa-caret-right"></i> Add Class</a></li>
@@ -229,15 +230,18 @@
                                      <li><a href="{{ URL::to('sectionsettings') }}"><i class="fa fa-caret-right"></i>Section Settings</a></li>
           
                                                 </ul>
-                                            </li> 
+                                            </li>
                                             <li>
                                                 <a href="#"><i class="fa fa-columns"></i> <span>Subjects</span></a>
-                                                <ul>
-                  <li><a href="add-subject1.html"><i class="fa fa-caret-right"></i>Add Subject</a></li>
-             <li><a href="add-chapter1.html"><i class="fa fa-caret-right"></i> Add Chapter</a></li>
-                                 <li><a href="subject-settings.html"><i class="fa fa-caret-right"></i>Settings</a></li>
+             <ul>
+                  <li><a href="{{url('addsubject')}}"><i class="fa fa-caret-right"></i>Add Subject</a></li>
+                  <li><a href="{{url('addchapter')}}"><i class="fa fa-caret-right"></i> Add Chapter</a></li>
+                  <li><a href="{{url('viewsubject')}}"><i class="fa fa-caret-right"></i>View Subject</a></li>
+                  <li><a href="{{url('viewchapter')}}"><i class="fa fa-caret-right"></i> View Chapter</a></li>
+                  <li><a href="{{url('subjectsettings')}}"><i class="fa fa-caret-right"></i>Subject Settings</a></li>
+                  <li><a href="{{url('chaptersettings')}}"><i class="fa fa-caret-right"></i>Chapter Settings</a></li>
              
-                                                </ul>
+             </ul>
                                             </li>
                                             <li>
                  <a href="#"><i class="fa fa-money"></i> <span>Fees</span> </a>
@@ -375,7 +379,15 @@
 
                             <!-- tile -->
                             <section class="tile">
-
+                                <!-- @if ($errors->any())
+                                   <div class="alert alert-danger">
+                                        <ul>
+                                            @foreach ($errors->all() as $error)
+                                              <li>{{ $error }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                @endif -->
                                 
                                 
                                 <div class="tile-header dvd dvd-btm">

@@ -7,86 +7,133 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
 use App\Http\Controllers\ClassController;
 use App\classtable;
+use App\employee;
+use Validator;
 
 class ClassController extends Controller
 {
 
-	 public function index()
+   public function index()
     {
-        
-        return view('addclass',compact('data'));              //add class form view
+
+        $incharge = DB::table('employees')->get();
+        $class = DB::table('classtables')->get();
+        return view('addclass',compact('class','incharge'));              //add class form view
     }
 
     //code for adding class form
-    public function classadd()
+ 
+
+         public function classadd(Request $request)
     {
+
+
+
+
+      $validator = Validator::make($request->all(), [
+            'class_name' => 'required',
+            //'class_teacher' => 'required',
+            
+        ]);
+
+        if ($validator->passes()) {
+
+
+          $data=new classtable;                                //create class table object
+        $data->class_name = $request['class_name'];
+        $data->teacher_id = $request['class_teacher'];      //insert input values into model object
+        $data->save();
+        $id = $data->id;
+        //$employee_id = $data->teacher_id;
+
+        //$incharge = DB::table('employees')->where('id','=',$request['class_teacher'])->first();
+        if($request['class_teacher'] != null)
+        {
+          $inch =  DB::table('employees')->where('id','=',$request['class_teacher'])->first();
+          $inch_name = $inch->employee_fname;
+
+        }
+        else
+          $inch_name = "";
         
-        $input=Input::only('class_name','class_teacher');    //take input values from form
-        $data=new classtable;                                //create class table object
-        $data->class_name = $input['class_name'];
-        $data->class_teacher = $input['class_teacher'];      //insert input values into model object
-        $data->save();                                       //save table
-        
-        return redirect('viewclass');                        
+
+        return response()->json([$data,$inch_name]);
+
+
+      //return response()->json([$data,$incharge]);
+       }
+          //$data=new classtable;                                //create class table object
+        //$data->class_name = $request['name'];
+        //$data->class_teacher = $request['details'];      //insert input values into model object
+        //$data->save();
+
+      //return response()->json(['success'=>'Added new records.',$data])
+        //}
+
+      return response()->json(['error'=>$validator->errors()->all()]);
     
+
+
+        //$product = classtable::create($request->input());
+         //return response()->json($product);
+
+        
     }
 
-    //view class function
-     public function viewclass()
-    {
 
-       $data =DB::table('classtables')->get();            //get content from class table
 
-       return view('viewclass',compact('data'));
 
-    }
 
-    public function classsettings()
-    {
+   
+         
+        
 
-       $data =DB::table('classtables')->get();
+    
 
-       return view('classsettings',compact('data'));
-
-    }
 
     public function classupdateform($id)
     {
 
-       $class = new classtable;                           //create new class model object
-       $class->id=$id;                                    //get id parameter
-       $data=classtable::find($class->id);                //find id from class table             
-
-       return view('classupdateform',compact('data'));
+        $product = classtable::find($id);
+        return response()->json($product);
     }
 
-     public function classupdate()
+     public function classupdate(Request $request,$id)
     {
-        
-       $input = Input::only('id','class_name','class_teacher');   //get input values from form
-       $data=new Classtable;
-       $id=$input['id'];
-       $class_name=$input['class_name'];
-       $class_teacher=$input['class_teacher'];
-       $affectedRows =Classtable::where('id', '=', $id)->update(array('class_name' => $class_name,'class_teacher' => $class_teacher));                                  //update query
+          //validation rules starts
+        $validator = Validator::make($request->all(), [
+            'class_name' => 'required',
+            //'class_teacher' => 'required',
+            
+        ]);
+          //validation rules ends
+        if ($validator->passes()) {
+        $product = classtable::find($id);
+        $product->class_name = $request->class_name;
+        $product->teacher_id = $request->class_teacher;
+        $product->save();
+         if($request['class_teacher'] != null)
+        {
+          $inch =  DB::table('employees')->where('id','=',$request['class_teacher'])->first();
+          $inch_name = $inch->employee_fname;
 
-       return redirect('classsettings')->with('update','Class has been updated');
+        }
+        else
+          $inch_name = "";
 
-    }
-
-    public function classdelete($id)
-    {
-
-      if(isset($id)) 
-      {
-        $record = Classtable::find($id);
-        if($record)
-         {
-            Classtable::find($id)->delete();                     //delete record 
-            return redirect('classsettings')->with('success', 'Class has been deleted');
-         }
-
+        return response()->json([$product,$inch_name]);
       }
+      return response()->json(['error'=>$validator->errors()->all()]);
+
+
+    }
+
+    public function destroy($id)
+    {
+      //return "ok";
+
+      $product = classtable::destroy($id);
+      return response()->json($product);
 
     }
     
